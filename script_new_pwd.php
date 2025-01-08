@@ -3,9 +3,10 @@ require 'element/header.php';
 
 session_start();
 $_SESSION['error_message_pwd'] = "";
+$_SESSION['attributes'] = "alert-danger";
+
 
 require 'fonctions/connexion-bd.php';
-$attributes = "alert-danger";
 
 
 $bdd= connexionBase();
@@ -36,10 +37,10 @@ if (isset($_POST['ok_pwd'])) {
                 );
             $reboot_email->closeCursor();
 
+            $_SESSION['attributes'] = "alert-success";
 
 
             unset($_SESSION['error_message_email']);
-            unset($_SESSION['attributes']);
             unset($_SESSION['login_pwd_perdu']);
         
 

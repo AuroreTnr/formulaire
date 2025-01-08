@@ -10,17 +10,23 @@ require 'fonctions/connexion-bd.php';
 
 <h1 class="text-center my-5">Réinitialiser votre mot de passe</h1>
 
+<?php echo "SESSION : " ?>
 <?php var_dump($_SESSION); ?>
+
+<?php echo "<br> POST : " ?>
+<?php var_dump($_POST); ?>
 
 
 
 <form action="script_new_pwd.php" method="post">
 
-    <div class="alert <?php if (isset($_SESSION['error_message_inscription'])) {echo $attributes;} ?>">
-        <?php if (isset($_SESSION['error_message_inscription'])) { echo $_SESSION['error_message_inscription']; }?>
-    </div>
-
     <div class="row g-3 align-items-center mb-4 mx-auto " style="max-width:700px;">
+        <div class="alert <?php if (isset($_SESSION['error_message_pwd'])) {echo $_SESSION['attributes'];} ?>">
+
+            <?php if (isset($_SESSION['error_message_pwd'])) { echo $_SESSION['error_message_pwd']; }?>
+
+        </div>
+    
 
         <div>
             <div class="col-auto">  
