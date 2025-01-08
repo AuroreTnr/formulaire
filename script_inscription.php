@@ -70,7 +70,7 @@ if (isset($_POST['ok']) ) {
             $_SESSION['connection'] = "true";
         
         
-            header("Location: pageConnexion.php");
+            header("Location: page_connexion.php");
             exit;
         }else{
             $_SESSION['error_message_inscription'] = "Vos passwords ne sont pas identiques";
