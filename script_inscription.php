@@ -17,6 +17,7 @@ if (isset($_POST['ok']) ) {
     $_SESSION['firstname'] = isset($_POST['firstname']) ? trim(htmlentities($_POST['firstname'], ENT_QUOTES, 'UTF-8')) : "";
     $_SESSION['email'] = isset($_POST['email']) ? trim(htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8')) : "";
 
+    // validation passeword au format : au moins 1 caractere et que des lettres.
     if (!empty($_POST['lastname']) && preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ-]*$/', $_POST['lastname'])){
         $lastname = trim(htmlentities($_POST['lastname'], ENT_QUOTES, 'UTF-8'));
     }else {
@@ -24,7 +25,8 @@ if (isset($_POST['ok']) ) {
         header("Location: form_inscription.php");
         exit;
     }
-
+    
+    // validation passeword au format : au moins 1 caractere et que des lettres.
     if (!empty($_POST['firstname']) && preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ-]*$/', $_POST['firstname'])){
         $firstname = trim(htmlentities($_POST['firstname'], ENT_QUOTES, 'UTF-8'));
     }else {
@@ -41,6 +43,7 @@ if (isset($_POST['ok']) ) {
         exit;
     }
 
+    // validation passeword au format : au moins 12 caracteres, 1 majuscule, 1 minuscule, 1 chiffre, 1 caratere special.
     if(preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{12,}/', $_POST['password'])){
         $password = password_hash(htmlentities($_POST['password'], ENT_QUOTES, 'UTF-8'), PASSWORD_DEFAULT);
     }else {

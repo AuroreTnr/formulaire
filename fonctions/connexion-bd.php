@@ -1,5 +1,9 @@
 <?php 
-
+/**
+ * Connection a la base de données
+ * 
+ * @return PDO
+ */
 function connexionBase(){
     try {
         $bdd = new PDO('mysql:host=localhost;dbname=exercice_user;charset=utf8', 'admin', 'Afpa1234');

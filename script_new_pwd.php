@@ -12,10 +12,12 @@ require 'fonctions/connexion-bd.php';
 $bdd= connexionBase();
 
 
+
 if (isset($_POST['ok_pwd'])) {
 
     $email = $_SESSION['login_pwd_perdu'];
 
+    // validation passeword au format : au moins 12 caracteres, 1 majuscule, 1 minuscule, 1 chiffre, 1 caratere special.
     if(preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{12,}/', $_POST['reboot_pwd'])){
         $password_reboot = password_hash(htmlentities($_POST['reboot_pwd'], ENT_QUOTES, 'UTF-8'), PASSWORD_DEFAULT);
     }else {

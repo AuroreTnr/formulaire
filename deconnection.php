@@ -1,4 +1,7 @@
 <?php
+/**
+ * Suppression des sessions
+ */
 if($_SERVER['REQUEST_URI'] === "/deconnection.php?action=deconnecter"){
     unset($_SESSION['lastname']);
     unset($_SESSION['firstname']);
